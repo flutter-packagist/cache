@@ -1,50 +1,36 @@
-## 缓存组件
+## Cache
 
-### 简介
-1. 偏好设置缓存
-2. 数据库缓存
+Preferences  
+1. 提供同步方式获取以及存储  
+2. 提供指定类型获取以及存储  
+3. 支持枚举方式缓存
+ 
+Database  
+ 支持ORM方式操作数据库
 
-### 引入
+### Isnatll
 ```
 cache:
     git:
       url: https://github.com/flutter-packagist/cache.git
 ```
 
-### 使用
-#### 一. 偏好设置缓存
-1. 初始
+### Use
+#### 一. Preferences
 ```
-  await SpManager.init();
-```
-
-2. 设置缓存
-```
+await SpManager.init();
 SpManager.setBool("name", true);
-SpManager.setInt("name", 1);
-SpManager.setDouble("name", 0.2);
 SpManager.setString("name", "string");
 SpManager.setStringList("name", [1, 2, 3]);
-```
-
-2. 获取缓存
-```
 SpManager.getBool("name");
-SpManager.getInt("name");
 SpManager.getDouble("name", defaultValue: 0);
 SpManager.getString("name");
 SpManager.getStringList("name");
-```
 
-3. 清除缓存
-```
 SpManager.remove("name");
-```
-
-4. 清空缓存
-```
 await SpManager.clear();
 ```
+
 #### 二. 数据库
 
 1. 初始化
