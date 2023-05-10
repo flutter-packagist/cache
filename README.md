@@ -31,7 +31,7 @@ SpManager.remove("name");
 await SpManager.clear();
 ```
 
-#### 二. 数据库
+#### 二. Database
 
 1. 初始化
 ```
