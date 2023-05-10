@@ -1,11 +1,11 @@
 ## Cache
 
-Preferences  
-1. 提供同步方式获取以及存储  
-2. 提供指定类型获取以及存储  
-3. 支持枚举方式缓存
+偏好设置 
+-提供同步方式获取以及存储
+-提供指定类型获取以及存储
+-支持枚举方式缓存
  
-Database  
+数据库  
  支持ORM方式操作数据库
 
 ### Installation
@@ -15,36 +15,39 @@ cache:
       url: https://github.com/flutter-packagist/cache.git
 ```
 
-### Usage
-#### 一. Preferences
-```
+### 使用
+#### 一. 偏好设置
+```dart
+// 初始化
 await SpManager.init();
+// 指定类型设置
 SpManager.setBool("name", true);
 SpManager.setString("name", "string");
 SpManager.setStringList("name", [1, 2, 3]);
+// 指定类型获取
 SpManager.getBool("name");
 SpManager.getDouble("name", defaultValue: 0);
 SpManager.getString("name");
 SpManager.getStringList("name");
-
+// 删除
 SpManager.remove("name");
 await SpManager.clear();
 ```
 
-#### 二. Database
+#### 二. 数据库
 
 1. 初始化
-```
+```dart
 await DBManager.init();
 ```
 
 2. 创建表
-```
+```dart
 class DBTest extends BaseTableModel
 ```
 
 3. 添加表列属性
-```
+```dart
 /// 添加表格属性
   @override
   Map<String, BaseColumn> get map => {
@@ -58,7 +61,7 @@ class DBTest extends BaseTableModel
   };
 ```
 4. 完整表例子
-```
+```dart
 /// 所有表都必须继承至 BaseTableModel
 class DBTest extends BaseTableModel {
 
@@ -102,21 +105,21 @@ class DBTest extends BaseTableModel {
 
 
 5. 保存数据
-```
+```dart
 await test1.save();
 ```
 
 6. 获取数据
-```
+```dart
 await DBTest().one(where: "age='14'");
 ```
 7. 删除数据
-```
+```dart
 await DBTest().delete(where: "age=18");
 ```
 
 8. 更新数据
-```
+```dart
 await test.update(where: "age='14'");
 ```
 
