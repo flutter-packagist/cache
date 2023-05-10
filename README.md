@@ -8,14 +8,14 @@ Preferences
 Database  
  支持ORM方式操作数据库
 
-### Isnatll
+### Installation
 ```
 cache:
     git:
       url: https://github.com/flutter-packagist/cache.git
 ```
 
-### Use
+### Usage
 #### 一. Preferences
 ```
 await SpManager.init();
@@ -120,3 +120,5 @@ await DBTest().delete(where: "age=18");
 await test.update(where: "age='14'");
 ```
 
+### License
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
