@@ -1,18 +1,12 @@
 ## Cache
 
-偏好设置 
--提供同步方式获取以及存储
--提供指定类型获取以及存储
--支持枚举方式缓存
- 
-数据库  
- 支持ORM方式操作数据库
+**提供一套灵活的缓存工具 支持同步(偏好设置) 支持ORM数据库**
 
-### Installation
-```
+### 安装
+```dart
 cache:
-    git:
-      url: https://github.com/flutter-packagist/cache.git
+git:
+url: https://github.com/flutter-packagist/cache.git
 ```
 
 ### 使用
@@ -20,17 +14,11 @@ cache:
 ```dart
 // 初始化
 await SpManager.init();
-// 指定类型设置
+// 缓存数据
 SpManager.setBool("name", true);
-SpManager.setString("name", "string");
-SpManager.setStringList("name", [1, 2, 3]);
-// 指定类型获取
-SpManager.getBool("name");
-SpManager.getDouble("name", defaultValue: 0);
-SpManager.getString("name");
-SpManager.getStringList("name");
 // 删除
 SpManager.remove("name");
+// 清空
 await SpManager.clear();
 ```
 
@@ -49,16 +37,16 @@ class DBTest extends BaseTableModel
 3. 添加表列属性
 ```dart
 /// 添加表格属性
-  @override
-  Map<String, BaseColumn> get map => {
-    "age": age,
-    "name": name,
-    "weight": weight,
-    "timestamp": timestamp,
-    "datetime": datetime,
-    "hobby": hobby,
-    "girlfriend": girlfriend,
-  };
+@override
+Map<String, BaseColumn> get map => {
+ "age": age,
+ "name": name,
+ "weight": weight,
+ "timestamp": timestamp,
+ "datetime": datetime,
+ "hobby": hobby,
+ "girlfriend": girlfriend,
+};
 ```
 4. 完整表例子
 ```dart
@@ -66,40 +54,40 @@ class DBTest extends BaseTableModel
 class DBTest extends BaseTableModel {
 
 
-  @override
-  BaseTableModel copy() => DBTest();
+ @override
+ BaseTableModel copy() => DBTest();
 
-  /// 添加表格属性
-  @override
-  Map<String, BaseColumn> get map => {
-    "age": age,
-    "name": name,
-    "weight": weight,
-    "timestamp": timestamp,
-    "datetime": datetime,
-    "hobby": hobby,
-    "girlfriend": girlfriend,
-  };
+ /// 添加表格属性
+ @override
+ Map<String, BaseColumn> get map => {
+  "age": age,
+  "name": name,
+  "weight": weight,
+  "timestamp": timestamp,
+  "datetime": datetime,
+  "hobby": hobby,
+  "girlfriend": girlfriend,
+ };
 
-  DBTest({int? age, String? name, double? weight, List<int>? hobby, int? girlfriend}){
-    this.age.content = age ?? 0;
-    this.name.content = name ?? "";
-    this.weight.content = weight ?? 0.0;
-    timestamp.content = DateTime.now().millisecondsSinceEpoch;
-    datetime.content = "2022-01-26";
-    this.hobby.content = hobby;
-    this.girlfriend.content = girlfriend;
-  }
+ DBTest({int? age, String? name, double? weight, List<int>? hobby, int? girlfriend}){
+  this.age.content = age ?? 0;
+  this.name.content = name ?? "";
+  this.weight.content = weight ?? 0.0;
+  timestamp.content = DateTime.now().millisecondsSinceEpoch;
+  datetime.content = "2022-01-26";
+  this.hobby.content = hobby;
+  this.girlfriend.content = girlfriend;
+ }
 
 
-  STInt uId = STInt(canNull: false, primaryKey: true, autoIncrement: true, defaultValue: 200);
-  STInt age = STInt(canNull: false);
-  STText name = STText(canNull: true);
-  STDouble weight = STDouble(canNull: false);
-  STTimestamp timestamp = STTimestamp();
-  STDatetime datetime = STDatetime();
-  STSet hobby = STSet(setList: ["篮球", "足球", "乒乓球", "羽毛球", "跑步"]);
-  STEnum girlfriend = STEnum(enumList: ["张三", "李四", "王五", "天线宝宝", "光头强"]);
+ STInt uId = STInt(canNull: false, primaryKey: true, autoIncrement: true, defaultValue: 200);
+ STInt age = STInt(canNull: false);
+ STText name = STText(canNull: true);
+ STDouble weight = STDouble(canNull: false);
+ STTimestamp timestamp = STTimestamp();
+ STDatetime datetime = STDatetime();
+ STSet hobby = STSet(setList: ["篮球", "足球", "乒乓球", "羽毛球", "跑步"]);
+ STEnum girlfriend = STEnum(enumList: ["张三", "李四", "王五", "天线宝宝", "光头强"]);
 }
 ```
 
