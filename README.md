@@ -5,8 +5,8 @@
 ### 安装
 ```dart
 cache:
-git:
-url: https://github.com/flutter-packagist/cache.git
+ git:
+   url: https://github.com/flutter-packagist/cache.git
 ```
 
 ### 使用
